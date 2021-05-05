@@ -4,9 +4,12 @@ import { PostList } from './PostList'
 
 function App() {
   return (
-    <div>
+    <section className="main-container">
       <PostList />
-    </div>
+      <div>
+        <p>Comments for post will appear here...</p>
+      </div>
+    </section>
   );
 }
 

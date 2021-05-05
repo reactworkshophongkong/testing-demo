@@ -12,13 +12,21 @@ code {
     monospace;
 }
 
+.main-container {
+  display: flex;
+}
+
 .button {
   margin-top: 10px;
   padding: 10px;
 }
 
+.post-list {
+  margin-right: 50px;
+}
+
 .post{
-  width: 50%;
+  width: 100%;
   padding: 5px;
   background-color: lightgray;
   margin: 10px 0;
