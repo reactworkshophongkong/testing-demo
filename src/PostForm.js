@@ -21,15 +21,16 @@ const PostForm = ({ onAddPost }) => {
   }
 
   return (
-    <section className="post-form">
+    <section className="post-form" data-testid="post-form">
       <input
         type="text" 
         className="text-input" 
         value={value} 
         placeholder="Enter new post..."
         onChange={handleChange}
+        data-testid="post-form-input"
       />
-      <button disabled={disabled} className="button" onClick={handleAddPost}>Add New Post</button>
+      <button data-testid="post-form-button" disabled={disabled} className="button" onClick={handleAddPost}>Add New Post</button>
     </section>
   )
 

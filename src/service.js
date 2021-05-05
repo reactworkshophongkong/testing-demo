@@ -15,6 +15,9 @@ const apiService = {
 
     console.log(result.data)
     return result.data
+  },
+  getCommentsForPost: async (id) => {
+    // to be done
   }
 }
 
