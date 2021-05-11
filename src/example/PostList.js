@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { apiService } from './service'
+import { apiService } from '../service'
 import { PostForm } from './PostForm'
 
 const PostList = () => {
