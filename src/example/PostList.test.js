@@ -1,7 +1,7 @@
 import { render, screen, waitFor, fireEvent, act } from '@testing-library/react'
 
 import { PostList } from './PostList'
-import { apiService } from './service'
+import { apiService } from '../service'
 
 jest.spyOn(apiService, 'getPosts')
 jest.spyOn(apiService, 'addPost')

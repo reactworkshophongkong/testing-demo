@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { apiService } from './service'
+import { apiService } from '../service'
 
 const PostForm = ({ onAddPost }) => {
   const [value, setValue] = useState('')
