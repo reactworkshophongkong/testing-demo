@@ -19,9 +19,9 @@ describe('PostList Component', () => {
 
   describe('Post Form', () => {
     test('renders the form for submitting new post', async () => {
-      const { queryByTestId } = render(<PostList />)
+      const utils = render(<PostList />)
 
-      expect(queryByTestId('post-form')).toBeInTheDocument()
+      expect(utils.queryByTestId('post-form')).toBeInTheDocument()
 
       // without below test shows a warning
       // as the component has async action when mounting, we should wait for async to finish
@@ -30,11 +30,11 @@ describe('PostList Component', () => {
     })
 
     test('If Post form is filled and add new post is clicked calls apiService.getPosts and displays list of returned posts', async () => {
-      const { queryByText, queryAllByText } = render(<PostList />)
+      const utils = render(<PostList />)
 
       await waitFor(() => expect(apiService.getPosts).toHaveBeenCalledTimes(1))
 
-      expect(queryAllByText(/Mock/)).toHaveLength(2)
+      expect(utils.queryAllByText(/Mock/)).toHaveLength(2)
 
       apiService.getPosts.mockResolvedValue([
         { title: 'Mock Post 1', author: 'Hon', id: '1' },
@@ -50,19 +50,26 @@ describe('PostList Component', () => {
 
       await waitFor(() => expect(apiService.addPost).toHaveBeenCalledTimes(1))
 
-      expect(queryAllByText(/Mock/)).toHaveLength(3)
+      expect(utils.queryAllByText(/Mock/)).toHaveLength(3)
     })
   })
   
 
   test('on mount calls apiService.getPosts and displays a list of returned posts', async () => {
-    const { queryByText, queryAllByText } = render(<PostList />)
+    const utils  = render(<PostList />)
 
     await waitFor(() => expect(apiService.getPosts).toHaveBeenCalledTimes(1))
 
-    expect(queryByText('Mock Post 1')).toBeInTheDocument()
-    expect(queryByText('Another Mock Post')).toBeInTheDocument()
 
-    expect(queryAllByText(/Mock/)).toHaveLength(2)
+    // getBy throws an error if the test fails
+    // also I think the error log is more informative, i would default to using getby
+    
+    // expect(utils.queryByText('Does not exist')).toBeInTheDocument()
+    // expect(utils.getByText('Does not exist')).toBeInTheDocument()
+
+    expect(utils.queryByText('Mock Post 1')).toBeInTheDocument()
+    expect(utils.queryByText('Another Mock Post')).toBeInTheDocument()
+
+    expect(utils.queryAllByText(/Mock/)).toHaveLength(2)
   })
 })
