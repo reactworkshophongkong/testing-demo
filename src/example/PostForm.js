@@ -26,7 +26,7 @@ const PostForm = ({ onAddPost }) => {
         type="text" 
         className="text-input" 
         value={value} 
-        placeholder="Enter new post..."
+        placeholder="Enter new post"
         onChange={handleChange}
         data-testid="post-form-input"
       />

@@ -49,20 +49,6 @@ describe('PostList Component', () => {
 
       expect(queryAllByText(/Mock/)).toHaveLength(3)
     })
-
-    test('if add post button is disabled if input is not filled, but not when input is filled', async () => {
-      render(<PostList />)
-
-      expect(screen.getByRole('button')).toHaveAttribute('disabled')
-
-      fireEvent.change(screen.getByTestId('post-form-input'), {
-        target: { value: 'A New Post'}
-      })
-
-      expect(screen.getByRole('button')).not.toHaveAttribute('disabled')
-
-      await act(() => Promise.resolve())
-    })
   })
   
 
