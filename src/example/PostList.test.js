@@ -23,6 +23,9 @@ describe('PostList Component', () => {
 
       expect(queryByTestId('post-form')).toBeInTheDocument()
 
+      // without below test shows a warning
+      // as the component has async action when mounting, we should wait for async to finish
+      // before test completes
       await act(() => Promise.resolve())
     })
 
